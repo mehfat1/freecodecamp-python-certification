@@ -100,3 +100,20 @@ def create_spend_chart(categories):
         result += '\n'
 
     return result.rstrip('\n')
+
+budget = Category('Budget')
+food = Category('Food')
+clothing = Category('Clothing')
+auto = Category('Auto')
+
+budget.deposit(1000, 'initial deposit')
+
+budget.transfer(100, food)
+budget.transfer(100, clothing)
+budget.transfer(100, auto)
+
+food.withdraw(60, 'groceries')
+clothing.withdraw(20, 'clothes')
+auto.withdraw(10, 'fuel')
+
+print(create_spend_chart([food, clothing, auto]))
